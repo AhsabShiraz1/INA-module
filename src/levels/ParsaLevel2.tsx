@@ -1,27 +1,23 @@
-import { Environment, Image } from "@react-three/drei"
-import { Root, Text, Container } from "@react-three/uikit"
-import * as THREE from "three";
+import { Environment } from "@react-three/drei"
+// import { Root, Text, Container } from "@react-three/uikit"
+// import * as THREE from "three";
 import { LevelProps } from '../interfaces'
 import Model from '../Model'
-import { useEffect, useRef } from "react"
-import VideoPlayer from "../VideoPlayer"
-import { Button } from "../components/apfel/button"
-import { DoubleSide } from "three"
-import { Volume2 } from "@react-three/uikit-lucide"
-import { PositionalAudio } from "@react-three/drei"
+import { useEffect } from "react"
+// import VideoPlayer from "../VideoPlayer"
+// import { Button } from "../components/apfel/button"
+// import { DoubleSide } from "three"
+// import { Volume2 } from "@react-three/uikit-lucide"
+// import { PositionalAudio } from "@react-three/drei"
 
 export default function ParsaLevel2({ setNotification }: LevelProps) {
-  const soundRef = useRef<THREE.PositionalAudio>(null);
+  // const soundRef = useRef<THREE.PositionalAudio>(null);
 
   useEffect(() => {
     setNotification("Click on the video to play \n Please move around and view the slides and read the instructions on your right carefully")
   }, [])
 
-  const handleAudio = () => {
-    if (soundRef.current) {
-      soundRef.current.play();
-    }
-  }
+
 
   return (
     <>
