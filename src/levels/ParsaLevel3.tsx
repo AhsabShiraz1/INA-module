@@ -1,25 +1,25 @@
-import { Container, Root, Text } from "@react-three/uikit"
+// import { Container, Root, Text } from "@react-three/uikit"
 import { LevelProps } from '../interfaces'
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import Model from "../Model"
-import { Environment, PositionalAudio } from "@react-three/drei";
-import { Button } from '../components/apfel/button';
-import { Volume2 } from "@react-three/uikit-lucide"
-import * as THREE from "three";
+import { Environment } from "@react-three/drei";
+// import { Button } from '../components/apfel/button';
+// import { Volume2 } from "@react-three/uikit-lucide"
+// import * as THREE from "three";
 import VideoPlayer from '../VideoPlayer';
 
 export default function ParsaLevel3({ setNotification }: LevelProps) {
-  const soundRef = useRef<THREE.PositionalAudio>(null);
+  // const soundRef = useRef<THREE.PositionalAudio>(null);
 
   useEffect(() => {
     setNotification("Please wear the PPE Kit before the tour of the facility and read the instructions carefully")
   }, [])
 
-  const handleAudio = () => {
-    if (soundRef.current) {
-      soundRef.current.play();
-    }
-  }
+  // const handleAudio = () => {
+  //   if (soundRef.current) {
+  //     soundRef.current.play();
+  //   }
+  // }
 
   return (
     <>

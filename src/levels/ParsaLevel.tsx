@@ -1,28 +1,28 @@
-import { Environment, Image } from "@react-three/drei";
-import { Root, Text, Container } from "@react-three/uikit";
+import { Environment } from "@react-three/drei";
+// import { Root, Text, Container } from "@react-three/uikit";
 import { LevelProps } from '../interfaces';
 import Model from '../Model';
-import { useEffect, useRef } from "react";
-import VideoPlayer from "../VideoPlayer";
-import { PositionalAudio } from "@react-three/drei";
-import * as THREE from "three";
-import { Button } from '../components/apfel/button';
-import { Volume2 } from "@react-three/uikit-lucide"
+import { useEffect } from "react";
+// import VideoPlayer from "../VideoPlayer";
+// import { PositionalAudio } from "@react-three/drei";
+// import * as THREE from "three";
+// import { Button } from '../components/apfel/button';
+// import { Volume2 } from "@react-three/uikit-lucide"
 
 
 export default function ParsaLevel({ setNotification }: LevelProps) {
-  const soundRef = useRef<THREE.PositionalAudio>(null);
+  // const soundRef = useRef<THREE.PositionalAudio>(null);
 
   useEffect(() => {
     setNotification("Welcome to P.E.K.B Module \n Click on the video to play and pause");
   }, [setNotification]);
 
 
-  const handleAudio = () => {
-    if (soundRef.current) {
-      soundRef.current.play();
-    }
-  }
+  // const handleAudio = () => {
+  //   if (soundRef.current) {
+  //     soundRef.current.play();
+  //   }
+  // }
 
   return (
     <>

@@ -1,27 +1,27 @@
 import { Environment } from "@react-three/drei"
 import { LevelProps } from '../interfaces'
-import { Root, Text, Container } from "@react-three/uikit";
+// import { Root, Text, Container } from "@react-three/uikit";
 // import Model from '../Model'
-import { Suspense, useEffect, useRef } from "react"
-import { PositionalAudio,Image } from "@react-three/drei";
-import * as THREE from "three";
-import { Button } from '../components/apfel/button';
-import { Volume2 } from "@react-three/uikit-lucide"
+import {  useEffect  } from "react"
+// import { PositionalAudio,Image } from "@react-three/drei";
+// import * as THREE from "three";
+// import { Button } from '../components/apfel/button';
+// import { Volume2 } from "@react-three/uikit-lucide"
 import Model from "../Model";
 import VideoPlayer from '../VideoPlayer';
 
 export default function ParsaLevel1({ setNotification }: LevelProps) {
-  const soundRef = useRef<THREE.PositionalAudio>(null);
+  // const soundRef = useRef<THREE.PositionalAudio>(null);
 
   useEffect(() => {
     setNotification("Welcome to P.E.K.B Security Block, \n Collect your gatepass here and enter security office with valid ID proof ")
   }, [])
 
-  const handleAudio = () => {
-    if (soundRef.current) {
-      soundRef.current.play();
-    }
-  }
+  // const handleAudio = () => {
+  //   if (soundRef.current) {
+  //     soundRef.current.play();
+  //   }
+  // }
 
   return (
     <>
