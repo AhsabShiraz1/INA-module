@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { createXRStore } from "@react-three/xr"
-import {  ArrowLeftIcon, ArrowRightIcon, HomeIcon, PlaySquare } from "@react-three/uikit-lucide"
+import {  ArrowLeftIcon, ArrowRightIcon, HomeIcon } from "@react-three/uikit-lucide"
 import { Container, Root } from "@react-three/uikit"
 import { XR } from "@react-three/xr";
 
 // import { Card } from './components/apfel/card'
 
 import HomeLevel from './levels/HomeLevel';
-import PrecheckLevel from './levels/PrecheckLevel';
 import Tone from './Tone'
-import ParsaLevel from './levels/ParsaLevel'
+import InaLevel2 from './levels/InaLevel2'
 import {  OrbitControls, SoftShadows } from '@react-three/drei'
 import PrecheckLevel1 from './levels/PrecheckLevel1'
 import PrecheckLevel2 from './levels/PrecheckLevel2'
@@ -31,7 +30,7 @@ import ParsaLevel12 from './levels/ParsaLevel12'
 import Silo from './levels/Silo'
 import Horticulture from './levels/Horticulture'
 import Township from './levels/Township'
-import Instructions from './levels/Instructions'
+import InaLevel1 from './levels/InaLevel1'
 import Exploration from './levels/Exploration'
 import ParsaConclusion from './levels/ParsaConclusion'
 import KclLevel1 from './levels/KclLevel1'
@@ -47,7 +46,7 @@ import IrmLevel3 from './levels/IrmLevel3'
 import IrmLevel4 from './levels/IrmLevel4'
 import IrmLevel5 from './levels/IrmLevel5'
 import IrmLevel6 from './levels/IrmLevel6'
-import { Button } from './components/apfel/button';
+
 import { Card } from './components/apfel/card'
 import KclLevelPpe from './levels/KclLevelPpe'
 import IrmLevel from './levels/IrmLevel'
@@ -88,38 +87,38 @@ function XRScene() {
     const [currentLevel, setCurrentLevel] = useState(0)
     const [ , setNotification] = useState("Welcome to Adani training Center")
 
-    useEffect(() => {
-        const currentTimestamp = Date.now();
-        const twoMinutes = 60 * 24 * 60 * 60 * 1000; // 4 Days
+    // useEffect(() => {
+    //     const currentTimestamp = Date.now();
+    //     const twoMinutes = 60 * 24 * 60 * 60 * 1000; // 4 Days
 
-        // Retrieve all stored timestamps from localStorage
-        let timestamps = JSON.parse(localStorage.getItem("timestamps") || "[]");
+    //     // Retrieve all stored timestamps from localStorage
+    //     let timestamps = JSON.parse(localStorage.getItem("timestamps") || "[]");
 
-        // If it's the first time, store the initial timestamp
-        if (timestamps.length === 0) {
-            timestamps.push(currentTimestamp); // First timestamp when the app is loaded
-            localStorage.setItem("timestamps", JSON.stringify(timestamps));
-            setCurrentLevel(0); // Initial level when the app is first loaded
-        } else {
-            // Store the new timestamp on each reload
-            timestamps.push(currentTimestamp);
-            localStorage.setItem("timestamps", JSON.stringify(timestamps));
+    //     // If it's the first time, store the initial timestamp
+    //     if (timestamps.length === 0) {
+    //         timestamps.push(currentTimestamp); // First timestamp when the app is loaded
+    //         localStorage.setItem("timestamps", JSON.stringify(timestamps));
+    //         setCurrentLevel(0); // Initial level when the app is first loaded
+    //     } else {
+    //         // Store the new timestamp on each reload
+    //         timestamps.push(currentTimestamp);
+    //         localStorage.setItem("timestamps", JSON.stringify(timestamps));
 
-            // Get the first timestamp (the very first load timestamp)
-            const firstTimestamp = timestamps[0];
+    //         // Get the first timestamp (the very first load timestamp)
+    //         const firstTimestamp = timestamps[0];
 
-            // Calculate the time difference between the first and the latest timestamp
-            const timeDifference = currentTimestamp - firstTimestamp;
+    //         // Calculate the time difference between the first and the latest timestamp
+    //         const timeDifference = currentTimestamp - firstTimestamp;
 
-            // If the time difference is more than 2 minutes, set level to 61
-            if (timeDifference > twoMinutes) {
-                setCurrentLevel(61);
-            } else {
-                // Keep the level as 0 if the difference is less than 2 minutes
-                setCurrentLevel(0);
-            }
-        }
-    }, []);
+    //         // If the time difference is more than 2 minutes, set level to 61
+    //         if (timeDifference > twoMinutes) {
+    //             setCurrentLevel(61);
+    //         } else {
+    //             // Keep the level as 0 if the difference is less than 2 minutes
+    //             setCurrentLevel(0);
+    //         }
+    //     }
+    // }, []);
 
 
 
@@ -138,9 +137,9 @@ function XRScene() {
     const renderLevel = () => {
         switch (currentLevel) {
             case 0:
-                return <HomeLevel setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
+                return <InaLevel1 key={`instructions-${currentLevel}`} setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
             case 1:
-                return <PrecheckLevel setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
+                return <InaLevel2 setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 2:
                 return <PrecheckLevel1 setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
             case 3:
@@ -150,9 +149,9 @@ function XRScene() {
             case 5:
                 return <Exploration setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 6:
-                 return <Instructions key={`instructions-${currentLevel}`} setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
-            case 7:
-                return <ParsaLevel setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
+                return <HomeLevel setCurrentLevel={setCurrentLevel} setNotification={setNotification} />;
+            // case 7:
+            //     return <ParsaLevel setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 8:
                 return <ParsaLevel1 setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 9:
@@ -187,8 +186,8 @@ function XRScene() {
                 return <Township setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 24:
                 return <ParsaConclusion setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
-            case 25:
-                return <Instructions key={`instructions-${currentLevel}`} setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
+            // case 25:
+            //     return <Instructions key={`instructions-${currentLevel}`} setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 26:
                 return <KclLevel1 setCurrentLevel={setCurrentLevel} setNotification={setNotification} />
             case 27:
@@ -305,7 +304,7 @@ function XRScene() {
                 <directionalLight position={[5, 10, -8]} castShadow intensity={5} shadow-mapSize={2048} shadow-bias={-0.001}>
                     <orthographicCamera attach="shadow-camera" args={[-10, 10, 10, -10, 0.1, 20]} />
                 </directionalLight>
-                {currentLevel !== 0 && currentLevel!==61 && (<group ref={menuRef}
+                {currentLevel !== 61 && currentLevel !== 8 && currentLevel !== 1 && currentLevel !== 9 && currentLevel !== 10 && (<group ref={menuRef}
                     // visible={isPresenting}
                     scale={[1, 1, 1]} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, -0.9]}>
                     <Root depthTest={false} sizeX={1.5} sizeY={0.5}>
@@ -326,32 +325,11 @@ function XRScene() {
                     </Root>
                 </group>)}
 
-                {/* {currentLevel === 0 && ( */}
-                    <group position={[-0.8, 3, -3]}>
-                    <Root>
-                        <Container>
-                            <Button variant="icon" onClick={() => store.enterVR()} padding={4}>
-                                <PlaySquare width={75} height={75} color={"white"} />
-                            </Button>
-                        </Container>
-                    </Root>
-                </group>
-            {/* //  )} */}
-                {/* {(currentLevel !== 0 || currentLevel !== 6) && (<group ref={uiRef}
-                    // visible={isPresenting}
-                    position={[0, 1, -5]}>
-                    <Root depthTest={false} sizeX={3} sizeY={0.5} flexDirection="row" flexWrap="wrap" alignItems="center" justifyContent="center">
-                        <Card padding={18} borderWidth={2}>
-                            <Text fontWeight="semi-bold" fontSize={14} letterSpacing={-0.5} textAlign="center">
-                                {notification}
-                            </Text>
-                        </Card>
-                    </Root>
-                </group>)} */}
+               
                 <OrbitControls />
                 <ambientLight intensity={1} />
                 <Tone mapping={'AgX'} exposure={1} />
-                {/* <Grid args={[10, 10]} position={[0, 0.001, 0]} infiniteGrid fadeDistance={20} fadeStrength={1} cellColor={"grey"} sectionColor={"white"} sectionSize={1} sectionThickness={0} /> */}
+
                 <SoftShadows />
                 {renderLevel()}
             </XR>
