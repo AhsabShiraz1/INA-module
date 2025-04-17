@@ -47,7 +47,7 @@ export default function Box({ level, setCurrentLevel,opacity, ...props }: BoxPro
         receiveShadow
       >
         <boxGeometry args={[1, 1, 1]}/>
-        <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+        <meshStandardMaterial color={hovered ? '#FF6B6B' : '#FFD93D'} />
       </mesh>
     </Interactive>
   )

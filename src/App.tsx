@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Canvas camera={{ position: [0, 1, 5] }} shadows dpr={[1, 1.5]} gl={{antialias : true}}>
+      <Canvas camera={{ position: [1, 1, 5] }} shadows dpr={[1, 1.5]} gl={{antialias : true}}>
         <XRScene/>
       </Canvas>
     </>
