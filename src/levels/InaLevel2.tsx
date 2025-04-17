@@ -57,12 +57,7 @@ export default function ParsaLevel({ setCurrentLevel, setNotification }: LevelPr
           scale: 230
         }}
       />
-      {/* <Model
-        url="/assets_2/Tank-new.glb"
-        position={[1.5, -5, -8]}
-        scale={2}
-        rotation={[0, -Math.PI/5, 0]}
-      /> */}
+    
       <Model
         url="/assets_2/ina_tank_dt_v2_m.glb"
         position={[1.5, 3.8, -4]}
